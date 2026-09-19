@@ -702,28 +702,36 @@ br + br { display: none; }
 &lt;&lt;if not $met[&quot;领导&quot;]&gt;&gt;&lt;&lt;set _unknown.push(&quot;领导&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _known.push(&quot;领导&quot;)&gt;&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if _unknown.length gt 0&gt;&gt;
-
-  &lt;&lt;if random(1,100) lte 90&gt;&gt;
-    &lt;&lt;set _p to either(_unknown)&gt;&gt;
-    &lt;&lt;set $met[_p] to true&gt;&gt;
-    &lt;&lt;set $aff[_p] to $aff[_p] + random(12,22)&gt;&gt;
-    &lt;&lt;set $feedText to &quot;你在冰刺里撞见了「&quot; + $nameMap[_p] + &quot;」。聊了几句，互相留了联系方式。通讯录里多了一个人。&quot;&gt;&gt;
-  &lt;&lt;else&gt;&gt;
-    &lt;&lt;set _p to either(_known)&gt;&gt;
-    &lt;&lt;set $aff[_p] to $aff[_p] + random(4,9)&gt;&gt;
-    &lt;&lt;set $feedText to &quot;你在冰刺里逛了一圈，只碰见了「&quot; + $nameMap[_p] + &quot;」，你们打了个招呼。&quot;&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
+&lt;&lt;set _p to either(_unknown)&gt;&gt;
+&lt;&lt;set $met[_p] to true&gt;&gt;
+&lt;&lt;set $aff[_p] to $aff[_p] + random(12,22)&gt;&gt;
+&lt;&lt;set $feedText to either([
+  &quot;你在冰刺里撞见了「&quot; + $nameMap[_p] + &quot;」。聊了几句，互相留了联系方式。通讯录里多了一个人。&quot;,
+  &quot;转角差点撞上一个人——是「&quot; + $nameMap[_p] + &quot;」。你们聊了一阵，他临走前留了个联系方式。&quot;,
+  &quot;「&quot; + $nameMap[_p] + &quot;」坐在一棵树下。你走过去，在旁边坐下，聊了起来。走的时候他加了你。&quot;,
+  &quot;你在冰刺里绕不出来，是「&quot; + $nameMap[_p] + &quot;」把你带出去的。一路上说了不少。&quot;,
+  &quot;你在一家小店里碰见「&quot; + $nameMap[_p] + &quot;」，他正好也在等出餐。你们拼了桌。&quot;
+])&gt;&gt;
 &lt;&lt;else&gt;&gt;
-
-  &lt;&lt;if random(1,100) lte 60&gt;&gt;
-    &lt;&lt;set _p to either(_known)&gt;&gt;
-    &lt;&lt;set $aff[_p] to $aff[_p] + random(0,9)&gt;&gt;
-    &lt;&lt;set $feedText to &quot;你在冰刺里碰见了「&quot; + $nameMap[_p] + &quot;」，你们一起待了一会儿。&quot;&gt;&gt;
-  &lt;&lt;else&gt;&gt;
-    &lt;&lt;set $feedText to &quot;你在冰刺里转了一圈，谁也没遇到。&quot;&gt;&gt;
-  &lt;&lt;/if&gt;&gt;
+&lt;&lt;if random(1,100) lte 65&gt;&gt;
+&lt;&lt;set _p to either(_known)&gt;&gt;
+&lt;&lt;set $aff[_p] to $aff[_p] + random(2,7)&gt;&gt;
+&lt;&lt;set $feedText to either([
+  &quot;你在冰刺里逛了一圈，只碰见了「&quot; + $nameMap[_p] + &quot;」，你们打了个招呼。&quot;,
+  &quot;「&quot; + $nameMap[_p] + &quot;」也在。你们并肩走了一段，没说什么正事。&quot;,
+  &quot;你看见「&quot; + $nameMap[_p] + &quot;」坐在长椅上。你过去坐了一会儿。&quot;,
+  &quot;你正好撞见「&quot; + $nameMap[_p] + &quot;」在买东西。你们简单聊了两句。&quot;
+])&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set $feedText to either([
+  &quot;你在冰刺里转了一圈，谁也没遇到。&quot;,
+  &quot;冰刺里今天人不多。你走了一圈，什么都没碰上。&quot;,
+  &quot;你在冰刺里待了一会儿，谁也没看见。&quot;,
+  &quot;街上冷冷清清。你原路返回了。&quot;
+])&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;gap&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
 &lt;&lt;set $delta to {&quot;体力&quot;: $stamina - _s0}&gt;&gt;
 &lt;&lt;goto &quot;行程反馈&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="白天联系选人" tags="" position="400,200" size="100,100">花一个行动点，主动联系某个人。
 &lt;&lt;gap&gt;&gt;
