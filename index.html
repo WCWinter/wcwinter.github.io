@@ -696,31 +696,53 @@ br + br { display: none; }
 
 &lt;&lt;set _unknown to []&gt;&gt;
 &lt;&lt;set _known to [&quot;竹马&quot;]&gt;&gt;
-&lt;&lt;if not $met[&quot;厨师&quot;]&gt;&gt;&lt;&lt;set _unknown.push(&quot;厨师&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _known.push(&quot;厨师&quot;)&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if not $met[&quot;同学&quot;]&gt;&gt;&lt;&lt;set _unknown.push(&quot;同学&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _known.push(&quot;同学&quot;)&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if not $met[&quot;秘书&quot;]&gt;&gt;&lt;&lt;set _unknown.push(&quot;秘书&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _known.push(&quot;秘书&quot;)&gt;&lt;&lt;/if&gt;&gt;
-&lt;&lt;if not $met[&quot;领导&quot;]&gt;&gt;&lt;&lt;set _unknown.push(&quot;领导&quot;)&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;set _known.push(&quot;领导&quot;)&gt;&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if not $met[&quot;厨师&quot;]&gt;&gt;
+&lt;&lt;set _unknown.push(&quot;厨师&quot;)&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set _known.push(&quot;厨师&quot;)&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if not $met[&quot;同学&quot;]&gt;&gt;
+&lt;&lt;set _unknown.push(&quot;同学&quot;)&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set _known.push(&quot;同学&quot;)&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if not $met[&quot;秘书&quot;]&gt;&gt;
+&lt;&lt;set _unknown.push(&quot;秘书&quot;)&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set _known.push(&quot;秘书&quot;)&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;if not $met[&quot;领导&quot;]&gt;&gt;
+&lt;&lt;set _unknown.push(&quot;领导&quot;)&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set _known.push(&quot;领导&quot;)&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if _unknown.length gt 0&gt;&gt;
+
 &lt;&lt;set _p to either(_unknown)&gt;&gt;
 &lt;&lt;set $met[_p] to true&gt;&gt;
 &lt;&lt;set $aff[_p] to $aff[_p] + random(12,22)&gt;&gt;
+&lt;&lt;set _nm to $nameMap[_p]&gt;&gt;
 &lt;&lt;set $feedText to either([
-  &quot;你在冰刺里撞见了「&quot; + $nameMap[_p] + &quot;」。聊了几句，互相留了联系方式。通讯录里多了一个人。&quot;,
-  &quot;转角差点撞上一个人——是「&quot; + $nameMap[_p] + &quot;」。你们聊了一阵，他临走前留了个联系方式。&quot;,
-  &quot;「&quot; + $nameMap[_p] + &quot;」坐在一棵树下。你走过去，在旁边坐下，聊了起来。走的时候他加了你。&quot;,
-  &quot;你在冰刺里绕不出来，是「&quot; + $nameMap[_p] + &quot;」把你带出去的。一路上说了不少。&quot;,
-  &quot;你在一家小店里碰见「&quot; + $nameMap[_p] + &quot;」，他正好也在等出餐。你们拼了桌。&quot;
+  &quot;你在冰刺里撞见了「&quot; + _nm + &quot;」。聊了几句，互相留了联系方式。通讯录里多了一个人。&quot;,
+  &quot;转角差点撞上一个人——是「&quot; + _nm + &quot;」。你们聊了一阵，他临走前留了个联系方式。&quot;,
+  &quot;「&quot; + _nm + &quot;」坐在一棵树下。你走过去，在旁边坐下，聊了起来。走的时候他加了你。&quot;,
+  &quot;你在冰刺里绕不出来，是「&quot; + _nm + &quot;」把你带出去的。一路上说了不少。&quot;,
+  &quot;你在一家小店里碰见「&quot; + _nm + &quot;」，他正好也在等出餐。你们拼了桌。&quot;
 ])&gt;&gt;
+
 &lt;&lt;else&gt;&gt;
+
 &lt;&lt;if random(1,100) lte 65&gt;&gt;
 &lt;&lt;set _p to either(_known)&gt;&gt;
 &lt;&lt;set $aff[_p] to $aff[_p] + random(2,7)&gt;&gt;
+&lt;&lt;set _nm to $nameMap[_p]&gt;&gt;
 &lt;&lt;set $feedText to either([
-  &quot;你在冰刺里逛了一圈，只碰见了「&quot; + $nameMap[_p] + &quot;」，你们打了个招呼。&quot;,
-  &quot;「&quot; + $nameMap[_p] + &quot;」也在。你们并肩走了一段，没说什么正事。&quot;,
-  &quot;你看见「&quot; + $nameMap[_p] + &quot;」坐在长椅上。你过去坐了一会儿。&quot;,
-  &quot;你正好撞见「&quot; + $nameMap[_p] + &quot;」在买东西。你们简单聊了两句。&quot;
+  &quot;你在冰刺里逛了一圈，只碰见了「&quot; + _nm + &quot;」，你们打了个招呼。&quot;,
+  &quot;「&quot; + _nm + &quot;」也在。你们并肩走了一段，没说什么正事。&quot;,
+  &quot;你看见「&quot; + _nm + &quot;」坐在长椅上。你过去坐了一会儿。&quot;,
+  &quot;你正好撞见「&quot; + _nm + &quot;」在买东西。你们简单聊了两句。&quot;
 ])&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set $feedText to either([
@@ -730,6 +752,7 @@ br + br { display: none; }
   &quot;街上冷冷清清。你原路返回了。&quot;
 ])&gt;&gt;
 &lt;&lt;/if&gt;&gt;
+
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;set $delta to {&quot;体力&quot;: $stamina - _s0}&gt;&gt;
@@ -1439,7 +1462,7 @@ br + br { display: none; }
 &lt;&lt;gap&gt;&gt;
 「他最近压力很大。」里莲特说，「你比我更知道怎么让他松下来。」你说你试试。他看了你一眼，没有笑，但是点了头。
 &lt;&lt;gap&gt;&gt;
-你走过去的时候，首至把茶杯放下了。「我哥让你来的？」他问。你说不是。他笑了一下，那种笑很轻。然后他伸手抓住你的衣领，把你拉下来。他的吻很急，牙齿磕到你的嘴唇。
+你走过去的时候，切尔淘把茶杯放下了。「我哥让你来的？」他问。你说不是。他笑了一下，那种笑很轻。然后他伸手抓住你的衣领，把你拉下来。他的吻很急，牙齿磕到你的嘴唇。
 &lt;&lt;gap&gt;&gt;
 里莲特是后来才进来的。他站在门口看了一会儿，然后走过来，从背后抱住切尔淘。切尔淘被夹在你们中间，呼吸乱了一瞬。
 &lt;&lt;gap&gt;&gt;
