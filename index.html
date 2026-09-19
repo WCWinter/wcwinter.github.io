@@ -415,12 +415,13 @@ br + br { display: none; }
 &lt;&lt;set $aff to {&quot;竹马&quot;:70, &quot;经纪人&quot;:30, &quot;厨师&quot;:0, &quot;同学&quot;:0, &quot;秘书&quot;:0, &quot;领导&quot;:0}&gt;&gt;
 &lt;&lt;set $met to {&quot;竹马&quot;:true, &quot;经纪人&quot;:true, &quot;厨师&quot;:false, &quot;同学&quot;:false, &quot;秘书&quot;:false, &quot;领导&quot;:false}&gt;&gt;
 &lt;&lt;set $sexCount to {&quot;竹马&quot;:0, &quot;经纪人&quot;:0, &quot;厨师&quot;:0, &quot;同学&quot;:0, &quot;秘书&quot;:0, &quot;领导&quot;:0}&gt;&gt;
+&lt;&lt;set $streakLast to {&quot;同学&quot;:&quot;&quot;, &quot;厨师&quot;:&quot;&quot;}&gt;&gt;&lt;&lt;set $streakCount to {&quot;同学&quot;:0, &quot;厨师&quot;:0}&gt;&gt;
 &lt;&lt;/widget&gt;&gt;
 
 &lt;&lt;widget &quot;gap&quot;&gt;&gt;
 &lt;&lt;set _n to ($args.length gt 0 ? $args[0] : 1)&gt;&gt;
 &lt;&lt;print &#39;&lt;div style=&quot;height:&#39; + (_n * 1) + &#39;em&quot;&gt;&lt;/div&gt;&#39;&gt;&gt;
-&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="样式" tags="stylesheet" position="400,100" size="100,100">body { background: #ff0000 !important; }</tw-passagedata><tw-passagedata pid="4" name="StoryInit" tags="" position="200,100" size="100,100">&lt;&lt;set $day to 1&gt;&gt;
+&lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="StoryInit" tags="" position="200,100" size="100,100">&lt;&lt;set $day to 1&gt;&gt;
 &lt;&lt;set $ap to 5&gt;&gt;
 &lt;&lt;set $overwork to 0&gt;&gt;
 &lt;&lt;set $stamina to 80&gt;&gt;
@@ -446,7 +447,8 @@ br + br { display: none; }
 &lt;&lt;set $controlRound to 0&gt;&gt;
 &lt;&lt;set $controlMax to 3&gt;&gt;
 &lt;&lt;set $corruptDay to &quot;▓▓ / ▓▓&quot;&gt;&gt;
-
+&lt;&lt;set $streakLast to {&quot;同学&quot;:&quot;&quot;, &quot;厨师&quot;:&quot;&quot;}&gt;&gt;
+&lt;&lt;set $streakCount to {&quot;同学&quot;:0, &quot;厨师&quot;:0}&gt;&gt;
 &lt;&lt;set $aff to {&quot;竹马&quot;:70, &quot;经纪人&quot;:30, &quot;厨师&quot;:0, &quot;同学&quot;:0, &quot;秘书&quot;:0, &quot;领导&quot;:0}&gt;&gt;
 &lt;&lt;set $met to {&quot;竹马&quot;:true, &quot;经纪人&quot;:true, &quot;厨师&quot;:false, &quot;同学&quot;:false, &quot;秘书&quot;:false, &quot;领导&quot;:false}&gt;&gt;
 &lt;&lt;set $sexCount to {&quot;竹马&quot;:0, &quot;经纪人&quot;:0, &quot;厨师&quot;:0, &quot;同学&quot;:0, &quot;秘书&quot;:0, &quot;领导&quot;:0}&gt;&gt;
@@ -652,7 +654,7 @@ br + br { display: none; }
 &quot;秘书&quot;: {
 &quot;low&quot;: [&quot;你给里莲特发消息，措辞想了半天。他回：「有事？」你说没什么，就是问问。他回：「嗯。」&quot;, &quot;你发了句「里莲特哥」。他回：「什么事。」你说没事。他回：「没事就去练，别在这儿耗着。」&quot;],
 &quot;mid&quot;: [&quot;「里莲特哥。」你发过去。他回：「什么事。」你说没有，就是想问问你今天累不累。过了几分钟，他回：「还行。你也早点休息。」——这是他第一次多说了一句。&quot;, &quot;你发了句「今天开会看到你了」。里莲特回：「嗯。」过了一会儿又补一条：「你坐在第三排。」&quot;],
-&quot;high&quot;: [&quot;你发消息的时候他可能在开会。但半小时后他回：「刚出来看到。怎么了。」你说没事。他说：「如果没事，你不会这个点给我发消息。」&quot;, &quot;你发了张空荡荡的练习室照片。重辉回：「就你一个？」你说嗯。&quot;]
+&quot;high&quot;: [&quot;你发消息的时候他可能在开会。但半小时后他回：「刚出来看到。怎么了。」你说没事。他说：「如果没事，你不会这个点给我发消息。」&quot;, &quot;你发了张空荡荡的练习室照片。里莲特回：「就你一个？」你说嗯。&quot;]
 },
 &quot;领导&quot;: {
 &quot;low&quot;: [&quot;你给切尔淘发消息，斟酌了很久用词。他回：「收到。」&quot;, &quot;你发了句「切总」。他回：「说。」你说没事。他没有再回。&quot;],
@@ -664,7 +666,7 @@ br + br { display: none; }
 &lt;&lt;set $feedText to &quot;&quot;&gt;&gt;
 &lt;&lt;set $fired to {}&gt;&gt;
 &lt;&lt;set $evNow to &quot;&quot;&gt;&gt;
-&lt;&lt;set $nameMap to {&quot;竹马&quot;:&quot;竹马·杨朗棠&quot;, &quot;经纪人&quot;:&quot;经纪人·言澈&quot;, &quot;厨师&quot;:&quot;厨师·苍茗&quot;, &quot;同学&quot;:&quot;同学·沈汇源&quot;, &quot;秘书&quot;:&quot;秘书·里莲特&quot;, &quot;领导&quot;:&quot;领导·切尔淘&quot;}&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="白天" tags="" position="200,200" size="100,100">&lt;&lt;if $controlled&gt;&gt;&lt;&lt;goto &quot;控制_白天&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $nameMap to {&quot;竹马&quot;:&quot;竹马·杨朗棠&quot;, &quot;经纪人&quot;:&quot;经纪人·言澈&quot;, &quot;厨师&quot;:&quot;厨师·苍茗&quot;, &quot;同学&quot;:&quot;同学·沈汇源&quot;, &quot;秘书&quot;:&quot;秘书·里莲特&quot;, &quot;领导&quot;:&quot;领导·切尔淘&quot;}&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="白天" tags="" position="200,200" size="100,100">&lt;&lt;if $controlled&gt;&gt;&lt;&lt;goto &quot;控制_白天&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $day is 7 and not $fired[&quot;考核1&quot;]&gt;&gt;&lt;&lt;set $fired[&quot;考核1&quot;] to true&gt;&gt;&lt;&lt;goto &quot;事件_月末考核&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $day is 21 and not $fired[&quot;考核2&quot;]&gt;&gt;&lt;&lt;set $fired[&quot;考核2&quot;] to true&gt;&gt;&lt;&lt;goto &quot;事件_中期考核&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $day is 42 and not $fired[&quot;考核3&quot;]&gt;&gt;&lt;&lt;set $fired[&quot;考核3&quot;] to true&gt;&gt;&lt;&lt;goto &quot;事件_出道舞台&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -687,7 +689,7 @@ br + br { display: none; }
 &lt;br&gt;&lt;br&gt;
 &lt;&lt;link &quot;查看通讯录&quot;&gt;&gt;&lt;&lt;goto &quot;通讯录&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 
-</tw-passagedata><tw-passagedata pid="6" name="寻访" tags="" position="300,200" size="100,100">&lt;&lt;set $overwork to 0&gt;&gt;
+</tw-passagedata><tw-passagedata pid="5" name="寻访" tags="" position="300,200" size="100,100">&lt;&lt;set $overwork to 0&gt;&gt;
 &lt;&lt;set _s0 to $stamina&gt;&gt;
 &lt;&lt;set $stamina to Math.max(0, $stamina - random(4,8))&gt;&gt;
 &lt;&lt;set $heat to $heat + 1&gt;&gt;
@@ -723,7 +725,7 @@ br + br { display: none; }
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;set $delta to {&quot;体力&quot;: $stamina - _s0}&gt;&gt;
-&lt;&lt;goto &quot;行程反馈&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="白天联系选人" tags="" position="400,200" size="100,100">花一个行动点，主动联系某个人。
+&lt;&lt;goto &quot;行程反馈&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="白天联系选人" tags="" position="400,200" size="100,100">花一个行动点，主动联系某个人。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;竹马·杨朗棠&quot;&gt;&gt;&lt;&lt;set $target to &quot;竹马&quot;&gt;&gt;&lt;&lt;goto &quot;白天联系结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;　
 &lt;&lt;link &quot;经纪人·言澈&quot;&gt;&gt;&lt;&lt;set $target to &quot;经纪人&quot;&gt;&gt;&lt;&lt;goto &quot;白天联系结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;br&gt;
@@ -733,7 +735,7 @@ br + br { display: none; }
 &lt;&lt;if $met[&quot;领导&quot;]&gt;&gt;&lt;&lt;link &quot;领导·切尔淘&quot;&gt;&gt;&lt;&lt;set $target to &quot;领导&quot;&gt;&gt;&lt;&lt;goto &quot;白天联系结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;算了&quot;&gt;&gt;&lt;&lt;goto &quot;白天&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="8" name="白天联系结果" tags="" position="500,200" size="100,100">&lt;&lt;set $overwork to 0&gt;&gt;
+</tw-passagedata><tw-passagedata pid="7" name="白天联系结果" tags="" position="500,200" size="100,100">&lt;&lt;set $overwork to 0&gt;&gt;
 &lt;&lt;set _s0 to $stamina&gt;&gt;&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;&lt;&lt;set _f0 to $fame&gt;&gt;
 &lt;&lt;set $ap to $ap - 1&gt;&gt;
 &lt;&lt;set $stamina to Math.max(0, $stamina - 3)&gt;&gt;
@@ -750,12 +752,14 @@ br + br { display: none; }
 
 &lt;div class=&quot;msg&quot;&gt;&lt;&lt;tierPick _n _a0 $contactText&gt;&gt;&lt;/div&gt;
 
+&lt;&lt;if _n isnot &quot;经纪人&quot;&gt;&gt;
 &lt;&lt;set _chance to Math.min(28, Math.round($fame * 0.28))&gt;&gt;
 &lt;&lt;if random(1,100) lte _chance&gt;&gt;
 &lt;&lt;set $fame to Math.max(0, $fame - random(6,12))&gt;&gt;
 &lt;&lt;set $heat to $heat + 6&gt;&gt;
 &lt;&lt;set $expose to $expose + 1&gt;&gt;
-&lt;div class=&quot;msg&quot;&gt;晚上你看到有人在超话里贴了你的私信截图。&lt;/div&gt;
+&lt;div class=&quot;msg&quot;&gt;晚上你看到有人在匹斯通里贴了你的私信截图。&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if _n is &quot;经纪人&quot;&gt;&gt;
@@ -766,13 +770,13 @@ br + br { display: none; }
 &lt;&lt;set $jealous to $jealous + 8&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set $delta to {&quot;体力&quot;: $stamina - _s0, &quot;孤独&quot;: $lonely - _l0, &quot;性压抑&quot;: $repress - _r0, &quot;知名度&quot;: $fame - _f0, &quot;好感&quot;: $d}&gt;&gt;
+&lt;&lt;set $delta to {&quot;体力&quot;: $stamina - _s0, &quot;孤独&quot;: $lonely - _l0, &quot;性压抑&quot;: $repress - _r0, &quot;知名度&quot;: $fame - _f0, &quot;好感&quot;: _d}&gt;&gt;
 &lt;&lt;deltaBlock&gt;&gt;
 
 &lt;&lt;controlWarn&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;if $jealous gte 100 or $desire gte 100&gt;&gt;&lt;&lt;goto &quot;控制_开场&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &quot;白天&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="9" name="通讯录" tags="" position="600,200" size="100,100">&lt;&lt;for _i to 0; _i &lt; 6; _i++&gt;&gt;
+</tw-passagedata><tw-passagedata pid="8" name="通讯录" tags="" position="600,200" size="100,100">&lt;&lt;for _i to 0; _i &lt; 6; _i++&gt;&gt;
 &lt;&lt;set _n to [&quot;竹马&quot;,&quot;经纪人&quot;,&quot;厨师&quot;,&quot;同学&quot;,&quot;秘书&quot;,&quot;领导&quot;][_i]&gt;&gt;
 &lt;&lt;if $met[_n]&gt;&gt;
 &lt;&lt;nameTxt _n&gt;&gt;　好感：&lt;&lt;affTxt _n&gt;&gt;&lt;&lt;gap&gt;&gt;
@@ -782,7 +786,7 @@ br + br { display: none; }
 &lt;&lt;/for&gt;&gt;
 &lt;br&gt;
 &lt;&lt;link &quot;返回&quot;&gt;&gt;&lt;&lt;goto &quot;白天&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="10" name="夜晚结算" tags="" position="200,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;&lt;&lt;set _m0 to $money&gt;&gt;
+</tw-passagedata><tw-passagedata pid="9" name="夜晚结算" tags="" position="200,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;&lt;&lt;set _m0 to $money&gt;&gt;
 &lt;&lt;set _income to Math.round(8 + $fame * 0.6)&gt;&gt;
 &lt;&lt;set _fameCost to Math.round($fame * 0.45)&gt;&gt;
 &lt;&lt;set _costTotal to $dailyCost + _fameCost&gt;&gt;
@@ -820,7 +824,7 @@ br + br { display: none; }
 &lt;&lt;else&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;夜晚&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="11" name="夜晚" tags="" position="300,500" size="100,100">&lt;&lt;if $controlled&gt;&gt;&lt;&lt;goto &quot;控制_夜晚&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="10" name="夜晚" tags="" position="300,500" size="100,100">&lt;&lt;if $controlled&gt;&gt;&lt;&lt;goto &quot;控制_夜晚&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;statusBar&gt;&gt;
 夜深了。你躺在宿舍的床上。
 &lt;&lt;gap&gt;&gt;
@@ -843,7 +847,7 @@ br + br { display: none; }
 &lt;&lt;link &quot;约炮&quot;&gt;&gt;&lt;&lt;goto &quot;夜晚约炮选人&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;br&gt;
 &lt;&lt;link &quot;自己解决&quot;&gt;&gt;&lt;&lt;goto &quot;夜晚自慰结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;br&gt;
 &lt;&lt;link &quot;一个人休息&quot;&gt;&gt;&lt;&lt;goto &quot;夜晚休息结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="12" name="夜晚话聊选人" tags="" position="400,500" size="100,100">你想找谁说说话？
+</tw-passagedata><tw-passagedata pid="11" name="夜晚话聊选人" tags="" position="400,500" size="100,100">你想找谁说说话？
 
 &lt;&lt;if $controlled&gt;&gt;
 &lt;&lt;link &quot;经纪人·言澈&quot;&gt;&gt;&lt;&lt;set $target to &quot;经纪人&quot;&gt;&gt;&lt;&lt;goto &quot;话聊结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -855,7 +859,7 @@ br + br { display: none; }
 &lt;&lt;if $met[&quot;秘书&quot;]&gt;&gt;&lt;&lt;link &quot;秘书·里莲特&quot;&gt;&gt;&lt;&lt;set $target to &quot;秘书&quot;&gt;&gt;&lt;&lt;goto &quot;话聊结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;　&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $met[&quot;领导&quot;]&gt;&gt;&lt;&lt;link &quot;领导·切尔淘&quot;&gt;&gt;&lt;&lt;set $target to &quot;领导&quot;&gt;&gt;&lt;&lt;goto &quot;话聊结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="13" name="话聊结果" tags="" position="500,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;&lt;&lt;set _f0 to $fame&gt;&gt;
+</tw-passagedata><tw-passagedata pid="12" name="话聊结果" tags="" position="500,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;&lt;&lt;set _f0 to $fame&gt;&gt;
 &lt;&lt;set _n to $target&gt;&gt;
 &lt;&lt;set _a to $aff[_n]&gt;&gt;
 &lt;&lt;set $lonely to Math.max(0, $lonely - (18 + Math.round(_a * 0.25)))&gt;&gt;
@@ -868,32 +872,59 @@ br + br { display: none; }
 &lt;&lt;set _close to false&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set _d to 0&gt;&gt;
+&lt;&lt;set _streak to 0&gt;&gt;
 &lt;&lt;if _n is &quot;同学&quot;&gt;&gt;
-&lt;&lt;set _d to ($lastTalk is &quot;同学&quot; ? -8 : 2)&gt;&gt;
-&lt;&lt;elseif _n is &quot;秘书&quot; or _n is &quot;领导&quot;&gt;&gt;
+&lt;&lt;if $streakLast[_n] is &quot;talk&quot;&gt;&gt;
+&lt;&lt;set $streakCount[_n] to $streakCount[_n] + 1&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set $streakCount[_n] to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $streakLast[_n] to &quot;talk&quot;&gt;&gt;
+&lt;&lt;set _streak to $streakCount[_n]&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
 &lt;&lt;set _d to 0&gt;&gt;
+&lt;&lt;if _n is &quot;秘书&quot; or _n is &quot;领导&quot;&gt;&gt;
+&lt;&lt;set _d to 0&gt;&gt;
+&lt;&lt;elseif _n is &quot;同学&quot;&gt;&gt;
+&lt;&lt;if _streak is 1&gt;&gt;
+&lt;&lt;set _d to random(4,7)&gt;&gt;
+&lt;&lt;elseif _streak is 2&gt;&gt;
+&lt;&lt;set _d to 0&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set _d to -5&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set _d to random(4,7)&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set $aff[_n] to Math.max(0, Math.min(150, $aff[_n] + _d))&gt;&gt;
-&lt;&lt;set $lastTalk to _n&gt;&gt;
 
 &lt;div class=&quot;msg&quot;&gt;
 你和 &lt;&lt;nameTxt _n&gt;&gt; 聊到很晚。孤独压下去了不少。&lt;br&gt;
 &lt;&lt;if _close&gt;&gt;但靠得这么近，你反而更难受了。&lt;&lt;else&gt;&gt;你们保持着恰当的距离，这让你安心。&lt;&lt;/if&gt;&gt;
-&lt;&lt;if _d lt 0&gt;&gt;对方后来明显不想聊了。&lt;&lt;elseif _d is 0&gt;&gt;对方只是在客套。&lt;&lt;else&gt;&gt;对方似乎挺愿意听你说。&lt;&lt;/if&gt;&gt;
+&lt;&lt;if _n is &quot;同学&quot;&gt;&gt;
+  &lt;&lt;if _streak is 1&gt;&gt;
+    对方似乎挺愿意听你说。
+  &lt;&lt;elseif _streak is 2&gt;&gt;
+    你讲得多了，对方开始走神。这不是第一次了。
+  &lt;&lt;else&gt;&gt;
+    对方明显不耐烦了。他知道你还会来，所以才敢不耐烦。
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;if _d lt 0&gt;&gt;对方后来明显不想聊了。&lt;&lt;elseif _d is 0&gt;&gt;对方只是在客套。&lt;&lt;else&gt;&gt;对方似乎挺愿意听你说。&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;msg&quot;&gt;&lt;&lt;tierPick _n _a $talkText&gt;&gt;&lt;/div&gt;
 
+&lt;&lt;if _n isnot &quot;经纪人&quot;&gt;&gt;
 &lt;&lt;set _chance to Math.min(55, Math.round($fame * 0.55))&gt;&gt;
 &lt;&lt;if random(1,100) lte _chance&gt;&gt;
 &lt;&lt;set $fame to Math.max(0, $fame - random(8,18))&gt;&gt;
 &lt;&lt;set $heat to $heat + 10&gt;&gt;
 &lt;&lt;set $expose to $expose + 1&gt;&gt;
-&lt;div class=&quot;msg&quot;&gt;第二天热搜上出现了你的名字。公司电话打爆了。&lt;/div&gt;
+&lt;div class=&quot;msg&quot;&gt;第二天热搜上出现了你的名字。虽然很快热搜就被压下去了，但是还是对你造成了不小的影响。&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if _n is &quot;经纪人&quot;&gt;&gt;
@@ -908,7 +939,7 @@ br + br { display: none; }
 &lt;&lt;deltaBlock&gt;&gt;
 
 &lt;&lt;controlWarn&gt;&gt;
-&lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;if $jealous gte 100 or $desire gte 100&gt;&gt;&lt;&lt;goto &quot;控制_开场&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="夜晚约炮选人" tags="" position="600,500" size="100,100">你知道自己在找什么。
+&lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;if $jealous gte 100 or $desire gte 100&gt;&gt;&lt;&lt;goto &quot;控制_开场&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="夜晚约炮选人" tags="" position="600,500" size="100,100">你知道自己在找什么。
 
 &lt;&lt;if $controlled&gt;&gt;
 &lt;&lt;link &quot;经纪人·言澈&quot;&gt;&gt;&lt;&lt;set $target to &quot;经纪人&quot;&gt;&gt;&lt;&lt;goto &quot;约炮结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
@@ -920,7 +951,7 @@ br + br { display: none; }
 &lt;&lt;if $met[&quot;秘书&quot;]&gt;&gt;&lt;&lt;link &quot;秘书·里莲特&quot;&gt;&gt;&lt;&lt;set $target to &quot;秘书&quot;&gt;&gt;&lt;&lt;goto &quot;约炮结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;　&lt;&lt;/if&gt;&gt;
 &lt;&lt;if $met[&quot;领导&quot;]&gt;&gt;&lt;&lt;link &quot;领导·切尔淘&quot;&gt;&gt;&lt;&lt;set $target to &quot;领导&quot;&gt;&gt;&lt;&lt;goto &quot;约炮结果&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="15" name="约炮结果" tags="" position="700,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;&lt;&lt;set _f0 to $fame&gt;&gt;
+</tw-passagedata><tw-passagedata pid="14" name="约炮结果" tags="" position="700,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;&lt;&lt;set _f0 to $fame&gt;&gt;
 &lt;&lt;set _n to $target&gt;&gt;
 &lt;&lt;set _a to $aff[_n]&gt;&gt;
 &lt;&lt;set _chance to Math.max(5, Math.min(92, Math.round(_a * 0.85) + 12))&gt;&gt;
@@ -930,21 +961,45 @@ br + br { display: none; }
 &lt;&lt;set _empty to (_a lt 50)&gt;&gt;
 &lt;&lt;set $lonely to (_empty ? Math.min(100, $lonely + 15) : Math.max(0, $lonely - 6))&gt;&gt;
 
+&lt;&lt;set _streak to 0&gt;&gt;
 &lt;&lt;if _n is &quot;厨师&quot;&gt;&gt;
-&lt;&lt;set _d to ($sexCount[&quot;厨师&quot;] gte 1 ? -8 : 5)&gt;&gt;
-&lt;&lt;elseif _n is &quot;秘书&quot; or _n is &quot;领导&quot;&gt;&gt;
+&lt;&lt;if $streakLast[_n] is &quot;sex&quot;&gt;&gt;
+&lt;&lt;set $streakCount[_n] to $streakCount[_n] + 1&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set $streakCount[_n] to 1&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $streakLast[_n] to &quot;sex&quot;&gt;&gt;
+&lt;&lt;set _streak to $streakCount[_n]&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
 &lt;&lt;set _d to 0&gt;&gt;
+&lt;&lt;if _n is &quot;秘书&quot; or _n is &quot;领导&quot;&gt;&gt;
+&lt;&lt;set _d to 0&gt;&gt;
+&lt;&lt;elseif _n is &quot;厨师&quot;&gt;&gt;
+&lt;&lt;if _streak is 1&gt;&gt;
+&lt;&lt;set _d to 6&gt;&gt;
+&lt;&lt;elseif _streak is 2&gt;&gt;
+&lt;&lt;set _d to 0&gt;&gt;
+&lt;&lt;else&gt;&gt;
+&lt;&lt;set _d to -5&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;set _d to 6&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
-&lt;&lt;set $aff[_n] to Math.max(0, Math.min(150, $aff[_n] + _d))&gt;&gt;
-&lt;&lt;set $sexCount[_n] to $sexCount[_n] + 1&gt;&gt;
 
 &lt;div class=&quot;msg&quot;&gt;
 「&lt;&lt;nameTxt _n&gt;&gt;」没有拒绝你。压在胸口的东西散掉了一大半。&lt;br&gt;
 &lt;&lt;if _empty&gt;&gt;但结束后你更空了——那不叫被懂，只是被用了。&lt;&lt;else&gt;&gt;结束后你们靠在一起，谁都没说话。&lt;&lt;/if&gt;&gt;
-&lt;&lt;if _d lt 0&gt;&gt;对方好像有点勉强。&lt;&lt;/if&gt;&gt;
+&lt;&lt;if _n is &quot;厨师&quot;&gt;&gt;
+  &lt;&lt;if _streak is 2&gt;&gt;
+    对方配合着，但你看得出来，他没上次那么上心了。
+  &lt;&lt;elseif _streak gte 3&gt;&gt;
+    对方越来越敷衍。你自己也知道，这已经是重复的第三、第四次了。
+  &lt;&lt;/if&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;&lt;if _d lt 0&gt;&gt;对方好像有点勉强。&lt;&lt;/if&gt;&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;/div&gt;
 
 &lt;div class=&quot;msg&quot;&gt;&lt;&lt;tierPick _n _a $sexText&gt;&gt;&lt;/div&gt;
@@ -957,12 +1012,14 @@ br + br { display: none; }
 &lt;div class=&quot;msg&quot;&gt;「&lt;&lt;nameTxt _n&gt;&gt;」笑着把你推开了。&lt;br&gt;你一个人回到宿舍，比出门前更冷。&lt;/div&gt;
 &lt;&lt;/if&gt;&gt;
 
+&lt;&lt;if _n isnot &quot;经纪人&quot;&gt;&gt;
 &lt;&lt;set _chance2 to Math.min(70, Math.round($fame * 0.75))&gt;&gt;
 &lt;&lt;if random(1,100) lte _chance2&gt;&gt;
 &lt;&lt;set $fame to Math.max(0, $fame - random(8,18))&gt;&gt;
 &lt;&lt;set $heat to $heat + 10&gt;&gt;
 &lt;&lt;set $expose to $expose + 1&gt;&gt;
-&lt;div class=&quot;msg&quot;&gt;第二天热搜上出现了你的名字。公司电话打爆了。&lt;/div&gt;
+&lt;div class=&quot;msg&quot;&gt;第二天热搜上出现了你的名字。虽然热搜很快被压下去了，但是还是对你造成了不小的影响。&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
 &lt;&lt;if _n is &quot;经纪人&quot;&gt;&gt;
@@ -977,7 +1034,7 @@ br + br { display: none; }
 &lt;&lt;deltaBlock&gt;&gt;
 
 &lt;&lt;controlWarn&gt;&gt;
-&lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;if $jealous gte 100 or $desire gte 100&gt;&gt;&lt;&lt;goto &quot;控制_开场&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="夜晚休息结果" tags="" position="800,500" size="100,100">&lt;&lt;set $stamina to Math.min(100, $stamina + random(6,12))&gt;&gt;
+&lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;if $jealous gte 100 or $desire gte 100&gt;&gt;&lt;&lt;goto &quot;控制_开场&quot;&gt;&gt;&lt;&lt;else&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="夜晚休息结果" tags="" position="800,500" size="100,100">&lt;&lt;set $stamina to Math.min(100, $stamina + random(6,12))&gt;&gt;
 &lt;&lt;set $lonely to Math.max(0, Math.min(100, $lonely + random(-6,4)))&gt;&gt;
 &lt;&lt;set $repress to Math.max(0, Math.min(100, $repress + random(-6,4)))&gt;&gt;
 &lt;&lt;if $lonely gte 70&gt;&gt;&lt;&lt;set $lonely to Math.min(100, $lonely + 5)&gt;&gt;&lt;&lt;/if&gt;&gt;
@@ -988,7 +1045,7 @@ br + br { display: none; }
 &lt;div class=&quot;msg&quot;&gt;你什么都没做。有些东西自己沉下去了，有些东西自己浮了上来。&lt;/div&gt;
 
 &lt;&lt;link &quot;睡着&quot;&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="17" name="日结" tags="" position="200,600" size="100,100">&lt;&lt;if $controlled&gt;&gt;&lt;&lt;goto &quot;控制_白天&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
+</tw-passagedata><tw-passagedata pid="16" name="日结" tags="" position="200,600" size="100,100">&lt;&lt;if $controlled&gt;&gt;&lt;&lt;goto &quot;控制_白天&quot;&gt;&gt;&lt;&lt;/if&gt;&gt;
 &lt;&lt;set $lonely to Math.min(100, $lonely)&gt;&gt;
 &lt;&lt;set $repress to Math.min(100, $repress)&gt;&gt;
 &lt;&lt;set $stamina to Math.min(100, $stamina + 8)&gt;&gt;
@@ -1003,7 +1060,7 @@ br + br { display: none; }
 &lt;&lt;/for&gt;&gt;
 &lt;&lt;set $day to $day + 1&gt;&gt;
 &lt;&lt;set $ap to 5&gt;&gt;
-&lt;&lt;goto &quot;结局判定&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="结局判定" tags="" position="300,600" size="100,100">&lt;&lt;if $controlled&gt;&gt;
+&lt;&lt;goto &quot;结局判定&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="结局判定" tags="" position="300,600" size="100,100">&lt;&lt;if $controlled&gt;&gt;
 &lt;&lt;goto &quot;控制_白天&quot;&gt;&gt;
 &lt;&lt;elseif $lonely gte 100&gt;&gt;
 &lt;&lt;goto &quot;结局9&quot;&gt;&gt;
@@ -1030,7 +1087,7 @@ br + br { display: none; }
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
 &lt;&lt;goto &quot;白天&quot;&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="19" name="结局1" tags="" position="200,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局一 · 全都握住了&lt;/div&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="结局1" tags="" position="200,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局一 · 全都握住了&lt;/div&gt;
 六十四天之后，你站在舞台边上看观众席。灯灭下去的一瞬间，你手机震了六下。
 &lt;&lt;gap&gt;&gt;
 六个人，六条消息，都在问你今晚去哪。
@@ -1038,7 +1095,7 @@ br + br { display: none; }
 你一个都没回，只是笑了。你想要的，一样都没落下。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="20" name="结局2" tags="" position="300,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局二 · 值钱的名字&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="19" name="结局2" tags="" position="300,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局二 · 值钱的名字&lt;/div&gt;
 
 你现在很有名，也很有钱。行程排到明年，代言接到手软。
 &lt;&lt;gap&gt;&gt;
@@ -1115,28 +1172,28 @@ br + br { display: none; }
 &lt;&lt;/for&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="结局3" tags="" position="400,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局三 · 二者皆得&lt;/div&gt;
+&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="结局3" tags="" position="400,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局三 · 二者皆得&lt;/div&gt;
 名利和人都被你留在了身边。这不是运气，是你六十四天里每一次都算准了代价。
 &lt;&lt;gap&gt;&gt;
 你如愿和最好的人住在了一栋公寓楼。你偶尔会想起第一天那个拖着行李箱站在楼下的自己。
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="结局4" tags="" position="500,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局四 · 什么都没抓住&lt;/div&gt;
+&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="21" name="结局4" tags="" position="500,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局四 · 什么都没抓住&lt;/div&gt;
 六十四天过去了。你还是那个不太红、不太有钱、也没有谁真正留在身边的人。
 &lt;&lt;gap&gt;&gt;
 合约还剩一年。你躺在空荡荡的公寓里，听着隔壁练习室传来的音乐声，不知道明天要不要爬起来。
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="结局5" tags="" position="600,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局五 · 无人记得&lt;/div&gt;
+&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="结局5" tags="" position="600,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局五 · 无人记得&lt;/div&gt;
 你的名字从热搜上掉下去以后就再也没回来。公司的解约函是快递寄来的，连电话都没打一个。
 &lt;&lt;gap&gt;&gt;
 你走出大楼那天，门口的保安都没抬头。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="24" name="结局6" tags="" position="700,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局六 · 余额不足&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="23" name="结局6" tags="" position="700,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局六 · 余额不足&lt;/div&gt;
 房租交不上的那天，你还在练习室。经纪人发来一条消息：「先回家吧。」
 &lt;&lt;gap&gt;&gt;
 你看着手机里的余额，第一次觉得，梦是可以用数字结算的。
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="结局7" tags="" position="800,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局七 · 被攥在手里&lt;/div&gt;
+&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="结局7" tags="" position="800,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局七 · 被攥在手里&lt;/div&gt;
 
 你不记得自己在这个房间里待了多久。
 &lt;&lt;gap&gt;&gt;
@@ -1153,18 +1210,18 @@ br + br { display: none; }
 你其实说不清自己是被控制，还是终于可以不选了。你只知道，他已经不用锁门了。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="26" name="结局8" tags="" position="900,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局八 · 没能站上去&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="25" name="结局8" tags="" position="900,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局八 · 没能站上去&lt;/div&gt;
 考核结束之后，没有人跟你说话。你在走廊上等了两个小时，等到灯都关了。
 &lt;&lt;gap&gt;&gt;
 第二天，你的名字从练习生名单上消失了。
 &lt;&lt;gap&gt;&gt;
 行李箱还是那个行李箱，只是这一次，是你自己拖出去的。
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="行程反馈" tags="" position="700,200" size="100,100">&lt;&lt;statusBar&gt;&gt;
+&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="行程反馈" tags="" position="700,200" size="100,100">&lt;&lt;statusBar&gt;&gt;
 &lt;div class=&quot;msg&quot;&gt;&lt;&lt;print $feedText&gt;&gt;&lt;/div&gt;
 &lt;&lt;deltaBlock&gt;&gt;
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;继续&quot;&gt;&gt;&lt;&lt;goto &quot;白天&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="28" name="事件_月末考核" tags="" position="200,800" size="100,100">&lt;div class=&quot;msg&quot;&gt;【第 7 天 · 月末考核】&lt;/div&gt;
+&lt;&lt;link &quot;继续&quot;&gt;&gt;&lt;&lt;goto &quot;白天&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="27" name="事件_月末考核" tags="" position="200,800" size="100,100">&lt;div class=&quot;msg&quot;&gt;【第 7 天 · 月末考核】&lt;/div&gt;
 公司把所有人拉到一间大练习室。镜子里排开二十张脸，谁都不敢先眨眼。
 &lt;&lt;gap&gt;&gt;
 导师念到你的名字。音乐起。
@@ -1184,7 +1241,7 @@ br + br { display: none; }
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;结局8&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="29" name="事件_中期考核" tags="" position="300,800" size="100,100">&lt;div class=&quot;msg&quot;&gt;【第 21 天 · 中期考核】&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="28" name="事件_中期考核" tags="" position="300,800" size="100,100">&lt;div class=&quot;msg&quot;&gt;【第 21 天 · 中期考核】&lt;/div&gt;
 这一次台下坐了三个人，其中一个你认识——是切尔淘。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;if $skill gte 50&gt;&gt;
@@ -1203,7 +1260,7 @@ br + br { display: none; }
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;结局8&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="30" name="事件_出道舞台" tags="" position="400,800" size="100,100">&lt;div class=&quot;msg&quot;&gt;【第 42 天 · 出道舞台】&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="29" name="事件_出道舞台" tags="" position="400,800" size="100,100">&lt;div class=&quot;msg&quot;&gt;【第 42 天 · 出道舞台】&lt;/div&gt;
 灯光第一次打在真正的舞台上。台下是看不清脸的黑，只有手机屏幕一片一片亮着。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;if $skill gte 75&gt;&gt;
@@ -1221,13 +1278,13 @@ br + br { display: none; }
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;结局8&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="31" name="好感事件" tags="" position="200,900" size="100,100">&lt;&lt;switch $evNow&gt;&gt;
+</tw-passagedata><tw-passagedata pid="30" name="好感事件" tags="" position="200,900" size="100,100">&lt;&lt;switch $evNow&gt;&gt;
 &lt;&lt;case &quot;竹马&quot;&gt;&gt;&lt;&lt;goto &quot;事件_杨朗棠&quot;&gt;&gt;
 &lt;&lt;case &quot;同学&quot;&gt;&gt;&lt;&lt;goto &quot;事件_沈汇源&quot;&gt;&gt;
 &lt;&lt;case &quot;厨师&quot;&gt;&gt;&lt;&lt;goto &quot;事件_茶羽奈&quot;&gt;&gt;
 &lt;&lt;case &quot;3P&quot;&gt;&gt;&lt;&lt;goto &quot;事件_重辉首至&quot;&gt;&gt;
 &lt;&lt;default&gt;&gt;&lt;&lt;goto &quot;夜晚&quot;&gt;&gt;
-&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="32" name="事件_杨朗棠" tags="" position="200,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 竹马·杨朗棠】&lt;/div&gt;
+&lt;&lt;/switch&gt;&gt;</tw-passagedata><tw-passagedata pid="31" name="事件_杨朗棠" tags="" position="200,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 竹马·杨朗棠】&lt;/div&gt;
 
 &lt;&lt;if random(1,2) is 1&gt;&gt;
 你下楼的时候，杨朗棠就站在路灯底下，手里拎着两瓶啤酒，一瓶已经空了。
@@ -1265,7 +1322,7 @@ br + br { display: none; }
 &lt;&lt;deltaBlock&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="33" name="事件_沈汇源" tags="" position="300,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 同学·沈汇源】&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="32" name="事件_沈汇源" tags="" position="300,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 同学·沈汇源】&lt;/div&gt;
 
 &lt;&lt;if random(1,2) is 1&gt;&gt;
 你收工已经十一点，沈汇源蹲在公司楼下的台阶上打游戏。「我没别的事，」他头也不抬，「就是想来看看你。」
@@ -1301,7 +1358,7 @@ br + br { display: none; }
 &lt;&lt;deltaBlock&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="34" name="事件_茶羽奈" tags="" position="400,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 厨师·苍茗】&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="33" name="事件_茶羽奈" tags="" position="400,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 厨师·苍茗】&lt;/div&gt;
 
 &lt;&lt;if random(1,2) is 1&gt;&gt;
 店门已经拉下一半，灯只留了后厨那一盏。苍茗在擦操作台，听见你进来也没抬头。「你不饿的话，」他说，「就陪我坐会儿。」
@@ -1337,7 +1394,7 @@ br + br { display: none; }
 &lt;&lt;deltaBlock&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="35" name="事件_重辉首至" tags="" position="500,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 秘书·里莲特 &amp; 领导切尔淘】&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="34" name="事件_重辉首至" tags="" position="500,1000" size="100,100">&lt;div class=&quot;msg&quot;&gt;【好感事件 · 秘书·里莲特 &amp; 领导切尔淘】&lt;/div&gt;
 
 &lt;&lt;if random(1,2) is 1&gt;&gt;
 是切尔淘先约的你。
@@ -1396,7 +1453,7 @@ br + br { display: none; }
 &lt;&lt;deltaBlock&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;日结&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="36" name="控制_开场" tags="" position="200,1100" size="100,100">&lt;&lt;set $controlled to true&gt;&gt;
+</tw-passagedata><tw-passagedata pid="35" name="控制_开场" tags="" position="200,1100" size="100,100">&lt;&lt;set $controlled to true&gt;&gt;
 &lt;&lt;set $controlRound to 0&gt;&gt;
 &lt;&lt;genCorrupt&gt;&gt;
 
@@ -1417,13 +1474,13 @@ br + br { display: none; }
 &lt;div class=&quot;msg&quot;&gt;你感觉，有什么东西被合上了。&lt;/div&gt;
 
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;控制_白天&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="37" name="控制_白天" tags="" position="300,1100" size="100,100">&lt;&lt;statusBar&gt;&gt;
+</tw-passagedata><tw-passagedata pid="36" name="控制_白天" tags="" position="300,1100" size="100,100">&lt;&lt;statusBar&gt;&gt;
 
 窗帘一直拉着。你分不清现在几点，也分不清这是第几天。
 &lt;&lt;gap&gt;&gt;
 {{只有一个选项。}}
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;和言澈见面&quot;&gt;&gt;&lt;&lt;goto &quot;控制_见面&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="38" name="控制_见面" tags="" position="400,1100" size="100,100">&lt;&lt;statusBar&gt;&gt;
+&lt;&lt;link &quot;和言澈见面&quot;&gt;&gt;&lt;&lt;goto &quot;控制_见面&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="37" name="控制_见面" tags="" position="400,1100" size="100,100">&lt;&lt;statusBar&gt;&gt;
 
 &lt;&lt;set _t to either([1,2,3])&gt;&gt;
 &lt;&lt;if _t is 1&gt;&gt;
@@ -1470,13 +1527,13 @@ br + br { display: none; }
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;控制_夜晚&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="39" name="控制_夜晚" tags="" position="500,1100" size="100,100">&lt;&lt;statusBar&gt;&gt;
+</tw-passagedata><tw-passagedata pid="38" name="控制_夜晚" tags="" position="500,1100" size="100,100">&lt;&lt;statusBar&gt;&gt;
 
 天黑了。你把灯关掉，屋子里只剩窗外透进来的一点光。
 &lt;&lt;gap&gt;&gt;
 {{只有一个选项。}}
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;和言澈过夜&quot;&gt;&gt;&lt;&lt;goto &quot;控制_约炮&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="40" name="控制_约炮" tags="" position="600,1100" size="100,100">&lt;&lt;set $controlRound to $controlRound + 1&gt;&gt;
+&lt;&lt;link &quot;和言澈过夜&quot;&gt;&gt;&lt;&lt;goto &quot;控制_约炮&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="控制_约炮" tags="" position="600,1100" size="100,100">&lt;&lt;set $controlRound to $controlRound + 1&gt;&gt;
 &lt;&lt;statusBar&gt;&gt;
 
 &lt;&lt;set _s to either([&quot;受&quot;, &quot;受&quot;, &quot;攻&quot;, &quot;攻&quot;])&gt;&gt;
@@ -1568,7 +1625,7 @@ br + br { display: none; }
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;…&quot;&gt;&gt;&lt;&lt;goto &quot;控制_白天&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
 &lt;&lt;/if&gt;&gt;
-</tw-passagedata><tw-passagedata pid="41" name="结局9" tags="" position="1000,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局九 · 一个人&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="40" name="结局9" tags="" position="1000,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局九 · 一个人&lt;/div&gt;
 
 那一晚你没有睡着。
 &lt;&lt;gap&gt;&gt;
@@ -1611,7 +1668,7 @@ br + br { display: none; }
 ——这大概是你这几个月里，做过的第一个动作。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="42" name="结局10" tags="" position="1100,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局十 · 随便找个人&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="41" name="结局10" tags="" position="1100,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局十 · 随便找个人&lt;/div&gt;
 
 那天晚上你出了门。
 &lt;&lt;gap&gt;&gt;
@@ -1686,7 +1743,7 @@ br + br { display: none; }
 手机不断振动着，你无心去看那些与你有关的劲爆新闻，只是想着肉体亲密。
 &lt;&lt;gap&gt;&gt;
 &lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;
-</tw-passagedata><tw-passagedata pid="43" name="结局11" tags="" position="1200,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局十一 ·  燃尽&lt;/div&gt;
+</tw-passagedata><tw-passagedata pid="42" name="结局11" tags="" position="1200,700" size="100,100">&lt;div class=&quot;end&quot;&gt;结局十一 ·  燃尽&lt;/div&gt;
 
 你记得那天早上你其实是醒着的。
 &lt;&lt;gap&gt;&gt;
@@ -1720,7 +1777,7 @@ br + br { display: none; }
 &lt;&lt;gap&gt;&gt;
 窗帘缝里的那条光慢慢移过地板，移到床边，移到你手背上。你闭上眼。这是你签约以来，第一次真的停下来。
 &lt;&lt;gap&gt;&gt;
-&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="44" name="夜晚自慰结果" tags="" position="900,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;
+&lt;&lt;link &quot;重新开始&quot;&gt;&gt;&lt;&lt;fullRestart&gt;&gt;&lt;&lt;goto &quot;Start&quot;&gt;&gt;&lt;&lt;/link&gt;&gt;</tw-passagedata><tw-passagedata pid="43" name="夜晚自慰结果" tags="" position="900,500" size="100,100">&lt;&lt;set _l0 to $lonely&gt;&gt;&lt;&lt;set _r0 to $repress&gt;&gt;
 
 &lt;&lt;set $repress to Math.max(0, $repress - 22)&gt;&gt;
 &lt;&lt;set $lonely to Math.min(100, $lonely + 10)&gt;&gt;
